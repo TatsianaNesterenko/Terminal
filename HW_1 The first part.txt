@@ -1,0 +1,89 @@
+HW_1. The first part
+Linux terminal (GitBash) commands
+
+1) Посмотреть где я - pwd
+
+2) Создать папку -  mkdir group_30_qa
+
+3) Зайти в папку - cd group_30_qa
+
+4) Создать 3 папки - mkdir fold_1 fold_2 fold_3
+
+5) Зайти в любую папку - cd fold_1
+
+6) Создать 5 файлов (3 txt, 2 json) -  touch 1qa_1.txt 1qa_2.txt 1qa_3.txt 1qa_1.json 1qa_2.json
+
+7) Создать 3 папки - mkdir 1fold_1 1fold_2 1fold_3
+
+8. Вывести список содержимого папки - ls -la
+
+#1й способ через cat#######################################
+9) + Открыть любой txt файл - cat >>1qa_1.txt
+10) + написать туда что-нибудь, любой текст - 17 20 48 ENTER 140 10 01 ENTER 126 138 ENTER 140 3 1 ENTER Pushkin ENTER
+11) + сохранить и выйти - CTRL+C
+12) Выйти из папки на уровень выше - cd ..
+
+#2й способ через vim########################################
+9) + Открыть любой txt файл - vim 1qa_1.txt
+10) + написать туда что-нибудь, любой текст - I -|вводим текст|17 20 48 ENTER 140 10 01 ENTER 126 138 ENTER 140 3 1 ENTER Pushkin ENTER - esc
+11) + сохранить и выйти - :wq ENTER
+12) Выйти из папки на уровень выше - cd ..
+
+—
+13) переместить любые 2 файла, которые вы создали, в любую другую папку - mv fold_1/1qa_1.txt  fold_2/1qa_1.txt
+                                                                          mv fold_1/1qa_1.json fold_2/1qa_1.json
+
+14) скопировать любые 2 файла, которые вы создали, в любую другую папку - cp fold_1/1qa_2.txt fold_2/1qa_2.txt
+                                                                          cp fold_1/1qa_2.json fold_2/1qa_2.json
+
+15) Найти файл по имени - find . -name "1qa_2.txt" // можно использовать часть имени или  find . -name "*.txt"
+
+16) просмотреть содержимое в реальном времени (команда grep) изучите как она работает
+
+tail -F fold_2/1qa_1.txt
+CTRL+C для выхода
+
+tail -F file1 | grep --line-buffered 17: | cat >> file2
+
+17) вывести несколько первых строк из текстового файла - head -n 5 fold_2/1qa_1.txt
+
+18) вывести несколько последних строк из текстового файла - tail -n 5 fold_2/1qa_1.txt
+
+19) просмотреть содержимое длинного файла (команда less) изучите как она работает - less fold_2/1qa_1.txt
+                                                                                    q - закрывает режим просмотра
+                                                                                    можно использовать less +F fold_2/1qa_1.txt
+                                                                                    CTRL+C q для выхода в терминал
+
+20) вывести дату и время - date
+=========
+
+Задание *
+1) Отправить http запрос на сервер. http://162.55.220.72:5005/terminal-hw-request 
+Запрос страницы
+curl http://162.55.220.72:5005/terminal-hw-request
+curl -X GET http://162.55.220.72:5005/terminal-hw-request
+
+Передача данных
+
+curl -X POST http://162.55.220.72:5005/get_method -d '{"name": "Test"}&{"age": "10"}'
+curl -d "[name]=[Test] & [age]=[10]" -X POST http://162.55.220.72:5005/get_method
+curl --data "[name]=[Test] & [age]=[10]" -X POST http://162.55.220.72:5005/get_method
+curl -d "name=TEST&age=10" http://162.55.220.72:5005/get_method
+
+"Natalia MOLODEC"
+ 
+Get запрос
+curl "http://162.55.220.72:5005/get_method?name=TEST&age=10"
+curl http://162.55.220.72:5005/get_method?"name=TEST&age=10"
+
+  "(TEST)",
+  "(10)"
+
+
+curl -X GET http://162.55.220.72:5005/get_method -d '{"name": "Test"}&{"age": "10"}'
+2) Написать скрипт который выполнит автоматически пункты 3, 4, 5, 6, 7, 8, 13 - bash Script_Bash.txt
+
+=====================
+1) Посмотреть где я - pwd
+2) Создать папку - mkdir foldername
+3) Зайти в папку - cd foldername
